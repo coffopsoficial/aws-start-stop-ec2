@@ -22,23 +22,9 @@ Em resumos:
 
 Primeira coisa a ser feita é acessar o IAM da conta para criar a policy.
 
-Crie utilizando este json: (sugestão de nome: start_stop_ec2_policy):
+Crie utilizando o conteúdo deste json (sugestão de nome: start_stop_ec2_policy): [start_stop_ec2_policy](https://github.com/coffopsoficial/aws-start-stop-ec2/blob/main/start_stop_ec2_policy)
 
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "ec2:StartInstances",
-                "ec2:StopInstances"
-            ],
-            "Resource": "arn:aws:ec2:us-east-1:235544818706:instance/i-046f7dea4d9f5e3d7"
-        }
-    ]
-}
-```
+
 
 Em seguida deve ser criada a função que estará associada à lambda (sugestão de nome: start_stop_ec2_role). Nessa função anexar as policies **start_stop_ec2_policy** e **AWSLambdaBasicExecutionRole**.
 
